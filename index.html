@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecondCall AI — Never Lose Another Job to a Missed Call</title>
+<meta name="description" content="AI systems for HVAC and roofing companies that catch every missed call, follow up every estimate, and book jobs while your techs are on the roof.">
+<style>
+  :root { --bg:#0b0f14; --panel:#121924; --accent:#f5a623; --accent2:#ffcf6b; --text:#eef2f6; --muted:#9aa7b5; --line:#223041; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+  header { padding:22px 0; border-bottom:1px solid var(--line); }
+  header .wrap { display:flex; justify-content:space-between; align-items:center; }
+  .logo { font-weight:800; font-size:22px; letter-spacing:.5px; }
+  .logo span { color:var(--accent); }
+  .nav a { color:var(--muted); text-decoration:none; margin-left:26px; font-size:15px; }
+  .nav a:hover { color:var(--text); }
+  .btn { display:inline-block; background:var(--accent); color:#111; font-weight:700; padding:14px 30px; border-radius:10px; text-decoration:none; font-size:17px; border:none; cursor:pointer; }
+  .btn:hover { background:var(--accent2); }
+  .btn.ghost { background:transparent; color:var(--text); border:1px solid var(--line); }
+  .hero { padding:90px 0 70px; text-align:center; }
+  .hero h1 { font-size:52px; line-height:1.12; font-weight:800; max-width:820px; margin:0 auto 20px; }
+  .hero h1 span { color:var(--accent); }
+  .hero p { color:var(--muted); font-size:20px; max-width:680px; margin:0 auto 36px; }
+  .hero .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:20px 0 70px; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px 22px; text-align:center; }
+  .stat .num { font-size:40px; font-weight:800; color:var(--accent); }
+  .stat .lbl { color:var(--muted); font-size:15px; margin-top:6px; }
+  section.block { padding:64px 0; border-top:1px solid var(--line); }
+  section.block h2 { font-size:34px; font-weight:800; text-align:center; margin-bottom:14px; }
+  section.block .sub { color:var(--muted); text-align:center; max-width:640px; margin:0 auto 44px; font-size:18px; }
+  .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:30px; }
+  .card h3 { font-size:21px; margin-bottom:10px; color:var(--accent2); }
+  .card p { color:var(--muted); font-size:16px; }
+  .card .price { margin-top:14px; font-weight:700; color:var(--text); }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .step { text-align:center; padding:10px; }
+  .step .n { width:52px; height:52px; border-radius:50%; background:var(--accent); color:#111; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .step h3 { margin-bottom:8px; }
+  .step p { color:var(--muted); font-size:16px; }
+  .pricing { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; max-width:760px; margin:0 auto; }
+  .tier { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:36px 32px; }
+  .tier.hot { border:2px solid var(--accent); }
+  .tier h3 { font-size:22px; margin-bottom:6px; }
+  .tier .p { font-size:38px; font-weight:800; color:var(--accent); margin:12px 0 4px; }
+  .tier .per { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .tier ul { list-style:none; margin-bottom:26px; }
+  .tier li { padding:7px 0; color:var(--muted); font-size:16px; }
+  .tier li::before { content:"✓ "; color:var(--accent); font-weight:700; }
+  .faq { max-width:720px; margin:0 auto; }
+  .faq details { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin-bottom:12px; }
+  .faq summary { font-weight:700; cursor:pointer; font-size:17px; }
+  .faq p { color:var(--muted); margin-top:10px; font-size:16px; }
+  .contact { text-align:center; padding:70px 0 90px; }
+  .contact h2 { font-size:36px; margin-bottom:14px; }
+  .contact p { color:var(--muted); font-size:18px; margin-bottom:30px; }
+  .contact .mail { font-size:20px; color:var(--accent2); font-weight:700; }
+  footer { border-top:1px solid var(--line); padding:26px 0; text-align:center; color:var(--muted); font-size:14px; }
+  @media(max-width:760px){ .hero h1{font-size:36px;} .stats,.cards,.steps,.pricing{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">SecondCall<span> AI</span></div>
+    <nav class="nav">
+      <a href="#services">Services</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Never lose another <span>$10,000 job</span> to a missed call.</h1>
+    <p>AI systems for HVAC and roofing companies that catch every missed call, follow up every estimate, and book jobs while your techs are on the roof.</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">See a 90-second demo</a>
+      <a class="btn ghost" href="#how">How it works</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">62%</div><div class="lbl">of calls to home service businesses go unanswered</div></div>
+    <div class="stat"><div class="num">$1,200</div><div class="lbl">average value of a single missed HVAC/roofing call</div></div>
+    <div class="stat"><div class="num">10 sec</div><div class="lbl">how fast our system texts back every missed caller</div></div>
+  </div>
+</div>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <h2>What we install</h2>
+    <p class="sub">One system, working 24/7. No new staff, no new software for your team to learn.</p>
+    <div class="cards">
+      <div class="card"><h3>Missed-Call Text-Back</h3><p>Every missed call gets an instant text. An AI conversation qualifies the caller and books the job straight into your calendar — nights, weekends, storm weeks.</p><div class="price">Core service</div></div>
+      <div class="card"><h3>Estimate Follow-Up Machine</h3><p>Every estimate gets automatic follow-up on day 1, 3, 7, and 14. Roofers tell us this alone recovers jobs they assumed were dead.</p><div class="price">Core service</div></div>
+      <div class="card"><h3>Review Engine</h3><p>Automatic review requests after every job. Happy customers go to Google; unhappy ones reach you privately first. Watch your rankings climb.</p><div class="price">Included in bundle</div></div>
+      <div class="card"><h3>Seasonal Campaigns</h3><p>Spring/fall tune-up blasts to your full customer list for HVAC. Storm-response mode for roofers when hail hits. Slow seasons stop being slow.</p><div class="price">Included in bundle</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <h2>Live in a week</h2>
+    <p class="sub">No disruption to how you work now. We build around your business.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>90-second demo</h3><p>Text our demo line and watch the system book a job. You'll see exactly what your customers would see.</p></div>
+      <div class="step"><div class="n">2</div><h3>Pilot setup</h3><p>We configure everything for your business — services, hours, calendar, service area. Free setup, live within a week.</p></div>
+      <div class="step"><div class="n">3</div><h3>You watch it work</h3><p>60-day pilot. If it isn't booking jobs and paying for itself, cancel. Keep the testimonials either way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <h2>Simple pricing</h2>
+    <p class="sub">One monthly retainer. No contracts after the pilot. Cancel anytime.</p>
+    <div class="pricing">
+      <div class="tier">
+        <h3>Pilot</h3>
+        <div class="p">$297</div><div class="per">per month, first 60 days · free setup</div>
+        <ul><li>Missed-call text-back + booking</li><li>Live within one week</li><li>Cancel anytime</li><li>For the first 3 companies only</li></ul>
+        <a class="btn ghost" href="#contact" style="width:100%;text-align:center;">Start pilot</a>
+      </div>
+      <div class="tier hot">
+        <h3>The Full Front Desk</h3>
+        <div class="p">$1,200–1,800</div><div class="per">per month · everything included</div>
+        <ul><li>Everything in Pilot</li><li>Estimate follow-up machine</li><li>Review engine</li><li>Seasonal campaigns</li><li>Priority support</li></ul>
+        <a class="btn" href="#contact" style="width:100%;text-align:center;">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Fair questions</h2>
+    <p class="sub"></p>
+    <div class="faq">
+      <details><summary>Will this replace my office staff?</summary><p>No. It handles what falls through the cracks — missed calls, after-hours, follow-ups nobody has time for. Your team keeps doing what they do; this catches the rest.</p></details>
+      <details><summary>Do my customers know it's automated?</summary><p>The texts read like a real coordinator: fast, polite, helpful. Most customers never think twice — they just get booked.</p></details>
+      <details><summary>What if it doesn't work for us?</summary><p>That's what the 60-day pilot is for. If it isn't booking jobs, cancel — no hard feelings, no annual contract.</p></details>
+      <details><summary>How long does setup take?</summary><p>Under a week. We need your services list, hours, service area, and calendar link. We handle the rest.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact" id="contact">
+    <h2>See it work in 90 seconds</h2>
+    <p>Text the demo, watch it book a job, then decide. That's the whole pitch.</p>
+    <p class="mail">secondcallaii@gmail.com</p>
+    <p style="margin-top:18px;"><a class="btn" href="mailto:secondcallaii@gmail.com?subject=90-second%20demo%20please">Request the demo</a></p>
+  </div>
+</div>
+
+<footer>SecondCall AI · AI front-desk systems for HVAC &amp; roofing · © 2026</footer>
+</body>
+</html>
