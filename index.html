@@ -4,46 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SecondCall AI — Never Lose Another Job to a Missed Call</title>
-<meta name="description" content="AI systems for HVAC and roofing companies that catch every missed call, follow up every estimate, and book jobs while your techs are on the roof.">
+<meta name="description" content="AI front-desk systems for local businesses that catch every missed call, follow up every estimate, and book jobs while you work.">
 <style>
   :root { --bg:#0b0f14; --panel:#121924; --accent:#f5a623; --accent2:#ffcf6b; --text:#eef2f6; --muted:#9aa7b5; --line:#223041; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
   .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
-  header { padding:22px 0; border-bottom:1px solid var(--line); }
+  header { padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08); position:sticky; top:0; z-index:50; background:rgba(11,15,20,.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
   header .wrap { display:flex; justify-content:space-between; align-items:center; }
   .logo { font-weight:800; font-size:22px; letter-spacing:.5px; }
   .logo span { color:var(--accent); }
   .nav a { color:var(--muted); text-decoration:none; margin-left:26px; font-size:15px; }
   .nav a:hover { color:var(--text); }
-  .btn { display:inline-block; background:var(--accent); color:#111; font-weight:700; padding:14px 30px; border-radius:10px; text-decoration:none; font-size:17px; border:none; cursor:pointer; }
-  .btn:hover { background:var(--accent2); }
-  .btn.ghost { background:transparent; color:var(--text); border:1px solid var(--line); }
-  .hero { padding:90px 0 70px; text-align:center; }
-  .hero h1 { font-size:52px; line-height:1.12; font-weight:800; max-width:820px; margin:0 auto 20px; }
+  .btn { display:inline-block; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-weight:700; padding:14px 30px; border-radius:10px; text-decoration:none; font-size:17px; border:none; cursor:pointer; box-shadow:0 8px 24px rgba(245,166,35,.35); }
+  .btn:hover { filter:brightness(1.07); }
+  .btn.ghost { background:rgba(11,15,20,.45); color:var(--text); border:1px solid rgba(255,255,255,.35); box-shadow:none; backdrop-filter:blur(6px); }
+  .hero-wrap { background:linear-gradient(100deg, rgba(7,10,15,.93) 22%, rgba(7,10,15,.62) 55%, rgba(7,10,15,.38) 100%), url('hero.jpg') center/cover no-repeat; border-bottom:1px solid var(--line); }
+  .hero { padding:104px 0 84px; text-align:center; }
+  .hero .kick { display:inline-block; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent2); border:1px solid rgba(245,166,35,.5); background:rgba(245,166,35,.12); padding:7px 16px; border-radius:999px; margin-bottom:26px; }
+  .hero h1 { font-size:54px; line-height:1.1; font-weight:800; max-width:840px; margin:0 auto 20px; text-shadow:0 3px 22px rgba(0,0,0,.55); }
   .hero h1 span { color:var(--accent); }
-  .hero p { color:var(--muted); font-size:20px; max-width:680px; margin:0 auto 36px; }
+  .hero p { color:#cfd9e3; font-size:20px; max-width:680px; margin:0 auto 36px; text-shadow:0 2px 14px rgba(0,0,0,.6); }
   .hero .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:20px 0 70px; }
-  .stat { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px 22px; text-align:center; }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:0 0 64px; margin-top:-6px; }
+  .stat { background:rgba(15,21,30,.72); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:28px 22px; text-align:center; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 14px 34px rgba(0,0,0,.35); }
   .stat .num { font-size:40px; font-weight:800; color:var(--accent); }
-  .stat .lbl { color:var(--muted); font-size:15px; margin-top:6px; }
+  .stat .lbl { color:#c3cedb; font-size:15px; margin-top:6px; }
   section.block { padding:64px 0; border-top:1px solid var(--line); }
   section.block h2 { font-size:34px; font-weight:800; text-align:center; margin-bottom:14px; }
   section.block .sub { color:var(--muted); text-align:center; max-width:640px; margin:0 auto 44px; font-size:18px; }
   .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
-  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:30px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .card .cardimg { width:100%; height:190px; object-fit:cover; display:block; }
+  .card .cardart { height:190px; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:6px; color:var(--accent2); background:radial-gradient(120% 160% at 20% 0%, #2a3c53 0%, #16202e 55%, #0e141d 100%); }
+  .card .cardbody { padding:26px 30px 30px; }
   .card h3 { font-size:21px; margin-bottom:10px; color:var(--accent2); }
   .card p { color:var(--muted); font-size:16px; }
   .card .price { margin-top:14px; font-weight:700; color:var(--text); }
+  .band { background:linear-gradient(rgba(7,10,15,.68), rgba(7,10,15,.78)), url('storm.jpg') center/cover no-repeat; padding:96px 0; text-align:center; border-top:1px solid var(--line); }
+  .band h2 { font-size:36px; font-weight:800; max-width:760px; margin:0 auto 14px; text-shadow:0 3px 20px rgba(0,0,0,.6); }
+  .band p { color:#d5dee8; font-size:19px; max-width:620px; margin:0 auto; text-shadow:0 2px 12px rgba(0,0,0,.65); }
   .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
   .step { text-align:center; padding:10px; }
-  .step .n { width:52px; height:52px; border-radius:50%; background:var(--accent); color:#111; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+  .step .n { width:52px; height:52px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; box-shadow:0 8px 20px rgba(245,166,35,.3); }
   .step h3 { margin-bottom:8px; }
   .step p { color:var(--muted); font-size:16px; }
   .pricing { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; max-width:760px; margin:0 auto; }
   .tier { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:36px 32px; }
-  .tier.hot { border:2px solid var(--accent); }
+  .tier.hot { border:2px solid var(--accent); box-shadow:0 18px 44px rgba(245,166,35,.14); }
   .tier h3 { font-size:22px; margin-bottom:6px; }
   .tier .p { font-size:38px; font-weight:800; color:var(--accent); margin:12px 0 4px; }
   .tier .per { color:var(--muted); font-size:14px; margin-bottom:18px; }
@@ -54,12 +62,21 @@
   .faq details { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin-bottom:12px; }
   .faq summary { font-weight:700; cursor:pointer; font-size:17px; }
   .faq p { color:var(--muted); margin-top:10px; font-size:16px; }
-  .contact { text-align:center; padding:70px 0 90px; }
-  .contact h2 { font-size:36px; margin-bottom:14px; }
-  .contact p { color:var(--muted); font-size:18px; margin-bottom:30px; }
-  .contact .mail { font-size:20px; color:var(--accent2); font-weight:700; }
+  .contact { padding:70px 0 90px; }
+  .contact h2 { font-size:36px; margin-bottom:14px; text-align:center; }
+  .contact .intro { color:var(--muted); font-size:18px; margin:0 auto 36px; text-align:center; max-width:680px; }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start; max-width:960px; margin:0 auto; }
+  .debbie-photo { position:relative; }
+  .debbie-photo img { width:100%; border-radius:16px; display:block; box-shadow:0 24px 54px rgba(0,0,0,.5); }
+  .debbie-chip { position:absolute; left:16px; bottom:16px; right:16px; background:rgba(10,14,20,.85); border:1px solid rgba(255,255,255,.16); backdrop-filter:blur(8px); border-radius:12px; padding:14px 16px; font-size:15px; }
+  .debbie-chip strong { color:var(--accent2); }
+  .debbie-chip .dot { display:inline-block; width:9px; height:9px; border-radius:50%; background:#3ddc84; margin-right:8px; box-shadow:0 0 10px #3ddc84; }
+  .debbie-call { display:block; margin-top:12px; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; text-decoration:none; border-radius:12px; padding:16px 18px; text-align:center; box-shadow:0 14px 34px rgba(245,166,35,.35); }
+  .debbie-call .dc-label { display:block; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+  .debbie-call .dc-num { display:block; font-size:30px; font-weight:800; letter-spacing:.5px; line-height:1.25; }
+  .contact .mail { font-size:20px; color:var(--accent2); font-weight:700; text-align:center; margin-top:38px; }
   footer { border-top:1px solid var(--line); padding:26px 0; text-align:center; color:var(--muted); font-size:14px; }
-  @media(max-width:760px){ .hero h1{font-size:36px;} .stats,.cards,.steps,.pricing{grid-template-columns:1fr;} }
+  @media(max-width:760px){ .hero h1{font-size:36px;} .stats,.cards,.steps,.pricing,.contact-grid{grid-template-columns:1fr;} .band h2{font-size:28px;} }
 </style>
 </head>
 <body>
@@ -72,32 +89,35 @@
   </div>
 </header>
 
-<div class="wrap">
-  <div class="hero">
-    <h1>Never lose another <span>$10,000 job</span> to a missed call.</h1>
-    <p>AI systems for HVAC and roofing companies that catch every missed call, follow up every estimate, and book jobs while your techs are on the roof.</p>
-    <div class="cta-row">
-      <a class="btn" href="#contact">See a 90-second demo</a>
-      <a class="btn ghost" href="#how">How it works</a>
+<div class="hero-wrap">
+  <div class="wrap">
+    <div class="hero">
+      <div class="kick">The front desk for local business</div>
+      <h1>Never lose another <span>$10,000 job</span> to a missed call.</h1>
+      <p>AI systems for local businesses that catch every missed call, follow up every estimate, and book the job while you're busy doing the work.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">See a 90-second demo</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
     </div>
-  </div>
 
-  <div class="stats">
-    <div class="stat"><div class="num">62%</div><div class="lbl">of calls to home service businesses go unanswered</div></div>
-    <div class="stat"><div class="num">$1,200</div><div class="lbl">average value of a single missed HVAC/roofing call</div></div>
-    <div class="stat"><div class="num">10 sec</div><div class="lbl">how fast our system texts back every missed caller</div></div>
+    <div class="stats">
+      <div class="stat"><div class="num">62%</div><div class="lbl">of calls to local businesses go unanswered</div></div>
+      <div class="stat"><div class="num">$1,200</div><div class="lbl">average value of a single missed call</div></div>
+      <div class="stat"><div class="num">10 sec</div><div class="lbl">how fast our system texts back every missed caller</div></div>
+    </div>
   </div>
 </div>
 
 <section class="block" id="services">
   <div class="wrap">
     <h2>What we install</h2>
-    <p class="sub">One system, working 24/7. No new staff, no new software for your team to learn.</p>
+    <p class="sub">One system, working 24/7 — for any business that runs on phone calls. No new staff, no new software for your team to learn.</p>
     <div class="cards">
-      <div class="card"><h3>Missed-Call Text-Back</h3><p>Every missed call gets an instant text. An AI conversation qualifies the caller and books the job straight into your calendar — nights, weekends, storm weeks.</p><div class="price">Core service</div></div>
-      <div class="card"><h3>Estimate Follow-Up Machine</h3><p>Every estimate gets automatic follow-up on day 1, 3, 7, and 14. Roofers tell us this alone recovers jobs they assumed were dead.</p><div class="price">Core service</div></div>
-      <div class="card"><h3>Review Engine</h3><p>Automatic review requests after every job. Happy customers go to Google; unhappy ones reach you privately first. Watch your rankings climb.</p><div class="price">Included in bundle</div></div>
-      <div class="card"><h3>Seasonal Campaigns</h3><p>Spring/fall tune-up blasts to your full customer list for HVAC. Storm-response mode for roofers when hail hits. Slow seasons stop being slow.</p><div class="price">Included in bundle</div></div>
+      <div class="card"><img class="cardimg" src="hero.jpg" alt="A technician on a rooftop at sunset"><div class="cardbody"><h3>Missed-Call Text-Back</h3><p>Every missed call gets an instant text. An AI conversation qualifies the caller and books the job straight into your calendar — nights, weekends, and your busiest weeks.</p><div class="price">Core service</div></div></div>
+      <div class="card"><img class="cardimg" src="roofer.jpg" alt="A roofer installing shingles"><div class="cardbody"><h3>Estimate Follow-Up Machine</h3><p>Every estimate gets automatic follow-up on day 1, 3, 7, and 14. Owners tell us this alone recovers jobs they assumed were dead.</p><div class="price">Core service</div></div></div>
+      <div class="card"><div class="cardart">★★★★★</div><div class="cardbody"><h3>Review Engine</h3><p>Automatic review requests after every job. Happy customers go to Google; unhappy ones reach you privately first. Watch your rankings climb.</p><div class="price">Included in bundle</div></div></div>
+      <div class="card"><img class="cardimg" src="storm.jpg" alt="Storm clouds gathering over a neighborhood"><div class="cardbody"><h3>Seasonal Campaigns</h3><p>Rush-season campaigns to your full customer list — tune-up season, storm season, the holiday surge. Slow seasons stop being slow.</p><div class="price">Included in bundle</div></div></div>
     </div>
   </div>
 </section>
@@ -107,12 +127,19 @@
     <h2>Live in a week</h2>
     <p class="sub">No disruption to how you work now. We build around your business.</p>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>90-second demo</h3><p>Text our demo line and watch the system book a job. You'll see exactly what your customers would see.</p></div>
+      <div class="step"><div class="n">1</div><h3>90-second demo</h3><p>Call our demo line and hear the system book a job. You'll hear exactly what your customers hear.</p></div>
       <div class="step"><div class="n">2</div><h3>Pilot setup</h3><p>We configure everything for your business — services, hours, calendar, service area. Free setup, live within a week.</p></div>
       <div class="step"><div class="n">3</div><h3>You watch it work</h3><p>60-day pilot. If it isn't booking jobs and paying for itself, cancel. Keep the testimonials either way.</p></div>
     </div>
   </div>
 </section>
+
+<div class="band">
+  <div class="wrap">
+    <h2>When the rush hits, the phones explode.</h2>
+    <p>Storm week, heat wave, holiday weekend — that's exactly when calls get missed. Debbie answers every one.</p>
+  </div>
+</div>
 
 <section class="block" id="pricing">
   <div class="wrap">
@@ -151,15 +178,20 @@
 <div class="wrap">
   <div class="contact" id="contact">
     <h2>Don't take our word for it — let Debbie call you</h2>
-    <p>Enter your number and Debbie, our AI receptionist, calls you back within a few minutes (8am–9pm ET) for a live demo — she answers, qualifies, and books, exactly like she would for your customers. Then decide. That's the whole pitch.</p>
-    <p>Rather call her yourself? Dial <strong>(718) 400-7035</strong> anytime — she answers 24/7.</p>
-    <p class="mail">secondcallaii@gmail.com</p>
+    <p class="intro">Enter your number and Debbie, our AI receptionist, calls you back within a few minutes (8am–9pm ET) for a live demo — she answers, qualifies, and books, exactly like she would for your customers. Then decide. That's the whole pitch.</p>
+    <div class="contact-grid">
+      <div class="debbie-photo">
+        <img src="debbie.jpg" alt="Debbie, the SecondCall AI receptionist">
+        <div class="debbie-chip"><span class="dot"></span><strong>Meet Debbie</strong> — answers in seconds, 24/7.</div>
+        <a class="debbie-call" href="tel:+17184007035"><span class="dc-label">📞 Call Debbie now — tap to dial</span><span class="dc-num">(718) 400-7035</span></a>
+      </div>
+      <div>
     <p id="sc-thanks" style="display:none;font-weight:600;color:#7ee2a8;max-width:440px;margin:18px auto 0;">Request received — Debbie will call you within a few minutes (8am–9pm ET). Keep your phone nearby.</p>
-    <form action="https://formsubmit.co/secondcallaii@gmail.com" method="POST" style="max-width:440px;margin:26px auto 0;text-align:left;">
+    <form action="https://formsubmit.co/secondcallaii@gmail.com" method="POST" style="max-width:440px;margin:0 auto;text-align:left;">
       <input type="hidden" name="_subject" value="Demo callback request — secondcallaii.com">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="http://secondcallaii.com/?demo=requested#contact">
+      <input type="hidden" name="_next" value="https://secondcallaii.com/?demo=requested#contact">
       <input type="text" name="_honey" style="display:none">
       <label for="sc-name" style="display:block;font-weight:600;margin-bottom:6px;">Your name</label>
       <input id="sc-name" name="Name" type="text" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
@@ -184,9 +216,12 @@
       <p style="font-size:13px;color:#9aa7b5;margin:10px 0 0;">No credit card. No obligation.</p>
     </form>
     <script>if(new URLSearchParams(location.search).get('demo')==='requested'){document.getElementById('sc-thanks').style.display='block';}</script>
+      </div>
+    </div>
+    <p class="mail">secondcallaii@gmail.com</p>
   </div>
 </div>
 
-<footer>SecondCall AI · AI front-desk systems for HVAC &amp; roofing · © 2026 · <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> · <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a></footer>
+<footer>SecondCall AI · AI front-desk systems for local businesses · © 2026 · <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> · <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a></footer>
 </body>
 </html>
