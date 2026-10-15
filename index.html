@@ -15,10 +15,22 @@
 <meta name="twitter:description" content="Debbie answers every call, books the job, and proves it after every call. The front desk for local business.">
 <meta name="twitter:image" content="https://secondcallaii.com/hero.jpg">
 <meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root { --bg:#0b0f14; --panel:#121924; --accent:#f5a623; --accent2:#ffcf6b; --text:#eef2f6; --muted:#9aa7b5; --line:#223041; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  body { font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  h1, h2, h3, .logo, .stat .num, .tier .p, .band h2 { font-family:"Sora","Inter",sans-serif; }
+  ::selection { background:var(--accent); color:#111; }
+  .kick2 { display:block; text-align:center; font-size:12.5px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .logo { display:flex; align-items:center; gap:11px; }
+  .logo img { width:36px; height:36px; border-radius:9px; box-shadow:0 6px 18px rgba(245,166,35,.35); }
+  .spots { display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#ffb3b3; border:1px solid rgba(255,120,120,.45); background:rgba(255,90,90,.10); padding:5px 12px; border-radius:999px; margin-bottom:12px; }
+  section.block { background-image:radial-gradient(60% 90% at 50% 0%, rgba(245,166,35,.045), transparent 70%); }
   .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
   header { padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08); position:sticky; top:0; z-index:50; background:rgba(11,15,20,.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
   header .wrap { display:flex; justify-content:space-between; align-items:center; }
@@ -124,7 +136,7 @@
 <body>
 <header>
   <div class="wrap">
-    <div class="logo">SecondCall<span> AI</span></div>
+    <div class="logo"><img src="logo.png" alt="SecondCall AI logo">SecondCall<span>&nbsp;AI</span></div>
     <nav class="nav">
       <a href="#services">Services</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
     </nav>
@@ -170,6 +182,7 @@
 
 <section class="block" id="services">
   <div class="wrap">
+    <span class="kick2">The System</span>
     <h2>What we install</h2>
     <p class="sub">One system, working 24/7 — installed for you, run for you, for any business that runs on phone calls. No new staff to hire, no software for your team to learn, nothing on your plate but the jobs it books.</p>
     <div class="cards">
@@ -184,6 +197,7 @@
 
 <section class="block">
   <div class="wrap">
+    <span class="kick2">Receipts, Not Promises</span>
     <h2>Proof after every call</h2>
     <p class="sub">You never have to take our word for anything. Every call Debbie handles leaves receipts.</p>
     <div class="proof">
@@ -224,10 +238,12 @@
 
 <section class="block" id="pricing">
   <div class="wrap">
+    <span class="kick2">Pricing</span>
     <h2>Simple pricing</h2>
     <p class="sub">One monthly retainer. No contracts after the pilot. Cancel anytime. Every plan includes proof after every call — and the 60-day pilot guarantee stands behind all of it.</p>
     <div class="pricing">
       <div class="tier">
+        <span class="spots">● Only 3 pilot spots</span>
         <h3>Pilot</h3>
         <div class="p">$297</div><div class="per">per month, first 60 days · free setup</div>
         <ul><li>Missed-call text-back + booking</li><li>Live within one week</li><li>Cancel anytime</li><li>For the first 3 companies only</li></ul>
