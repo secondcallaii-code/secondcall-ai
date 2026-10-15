@@ -150,21 +150,40 @@
 
 <div class="wrap">
   <div class="contact" id="contact">
-    <h2>See it work in 90 seconds</h2>
-    <p>Request the demo, watch it book a job, then decide. That's the whole pitch.</p>
+    <h2>Don't take our word for it — let Debbie call you</h2>
+    <p>Enter your number and Debbie, our AI receptionist, calls you back within a few minutes (8am–9pm ET) for a live demo — she answers, qualifies, and books, exactly like she would for your customers. Then decide. That's the whole pitch.</p>
+    <p>Rather call her yourself? Dial <strong>(718) 400-7035</strong> anytime — she answers 24/7.</p>
     <p class="mail">secondcallaii@gmail.com</p>
-    <form action="mailto:second@secondcallaii.com?subject=Demo%20request%20from%20secondcallaii.com" method="post" enctype="text/plain" style="max-width:440px;margin:26px auto 0;text-align:left;">
+    <p id="sc-thanks" style="display:none;font-weight:600;color:#7ee2a8;max-width:440px;margin:18px auto 0;">Request received — Debbie will call you within a few minutes (8am–9pm ET). Keep your phone nearby.</p>
+    <form action="https://formsubmit.co/secondcallaii@gmail.com" method="POST" style="max-width:440px;margin:26px auto 0;text-align:left;">
+      <input type="hidden" name="_subject" value="Demo callback request — secondcallaii.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="http://secondcallaii.com/?demo=requested#contact">
+      <input type="text" name="_honey" style="display:none">
       <label for="sc-name" style="display:block;font-weight:600;margin-bottom:6px;">Your name</label>
       <input id="sc-name" name="Name" type="text" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
+      <label for="sc-business" style="display:block;font-weight:600;margin-bottom:6px;">Business name <span style="font-weight:400;color:#9aa7b5;">(optional)</span></label>
+      <input id="sc-business" name="Business" type="text" style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
       <label for="sc-mobile" style="display:block;font-weight:600;margin-bottom:6px;">Mobile number</label>
       <input id="sc-mobile" name="Mobile" type="tel" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
+      <label for="sc-issue" style="display:block;font-weight:600;margin-bottom:6px;">What's your biggest issue right now?</label>
+      <select id="sc-issue" name="Biggest issue" style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
+        <option>Missed calls going to voicemail</option>
+        <option>After-hours calls going unanswered</option>
+        <option>Estimates not getting followed up</option>
+        <option>Office staff stretched too thin</option>
+        <option>Just curious how it works</option>
+      </select>
       <label for="sc-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#9aa7b5;line-height:1.5;">
-        <input id="sc-consent" name="SMS consent" type="checkbox" value="Yes" required style="margin-top:3px;">
-        <span>Yes, SecondCall AI may text me about my request and its services. Message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. Consent is not a condition of purchase.</span>
+        <input id="sc-consent" name="Call and SMS consent" type="checkbox" value="Yes" required style="margin-top:3px;">
+        <span>Yes, SecondCall AI may call and text me at the number I provided about my demo request and its services. Call and message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. Consent is not a condition of purchase.</span>
       </label>
       <p style="font-size:13px;color:#9aa7b5;margin:10px 0 18px;">See our <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> and <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a>.</p>
-      <button type="submit" class="btn" style="width:100%;text-align:center;cursor:pointer;">Request the demo</button>
+      <button type="submit" class="btn" style="width:100%;text-align:center;cursor:pointer;">Have Debbie call me</button>
+      <p style="font-size:13px;color:#9aa7b5;margin:10px 0 0;">No credit card. No obligation.</p>
     </form>
+    <script>if(new URLSearchParams(location.search).get('demo')==='requested'){document.getElementById('sc-thanks').style.display='block';}</script>
   </div>
 </div>
 
