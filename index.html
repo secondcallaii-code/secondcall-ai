@@ -151,12 +151,23 @@
 <div class="wrap">
   <div class="contact" id="contact">
     <h2>See it work in 90 seconds</h2>
-    <p>Text the demo, watch it book a job, then decide. That's the whole pitch.</p>
+    <p>Request the demo, watch it book a job, then decide. That's the whole pitch.</p>
     <p class="mail">secondcallaii@gmail.com</p>
-    <p style="margin-top:18px;"><a class="btn" href="mailto:secondcallaii@gmail.com?subject=90-second%20demo%20please">Request the demo</a></p>
+    <form action="mailto:second@secondcallaii.com?subject=Demo%20request%20from%20secondcallaii.com" method="post" enctype="text/plain" style="max-width:440px;margin:26px auto 0;text-align:left;">
+      <label for="sc-name" style="display:block;font-weight:600;margin-bottom:6px;">Your name</label>
+      <input id="sc-name" name="Name" type="text" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
+      <label for="sc-mobile" style="display:block;font-weight:600;margin-bottom:6px;">Mobile number</label>
+      <input id="sc-mobile" name="Mobile" type="tel" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:#e5edf5;margin-bottom:16px;">
+      <label for="sc-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#9aa7b5;line-height:1.5;">
+        <input id="sc-consent" name="SMS consent" type="checkbox" value="Yes" required style="margin-top:3px;">
+        <span>Yes, SecondCall AI may text me about my request and its services. Message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. Consent is not a condition of purchase.</span>
+      </label>
+      <p style="font-size:13px;color:#9aa7b5;margin:10px 0 18px;">See our <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> and <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a>.</p>
+      <button type="submit" class="btn" style="width:100%;text-align:center;cursor:pointer;">Request the demo</button>
+    </form>
   </div>
 </div>
 
-<footer>SecondCall AI · AI front-desk systems for HVAC &amp; roofing · © 2026 · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms & Conditions</a></footer>
+<footer>SecondCall AI · AI front-desk systems for HVAC &amp; roofing · © 2026 · <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> · <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a></footer>
 </body>
 </html>
