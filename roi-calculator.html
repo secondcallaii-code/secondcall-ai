@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Missed-Call Calculator — What Is Your Phone Costing You?</title>
+<meta name="description" content="Move four sliders and see an honest estimate of the jobs and revenue your missed calls may be costing you every month — then check the real numbers with the free Missed-Call Audit.">
+<meta property="og:title" content="The Missed-Call Calculator — What Is Your Phone Costing You?">
+<meta property="og:description" content="An honest, transparent estimate of what missed calls cost a local shop — jobs lost per month, revenue lost per month and per year.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://secondcallaii.com/roi-calculator.html">
+<meta property="og:image" content="https://secondcallaii.com/hero.jpg">
+<meta name="theme-color" content="#0b0f14">
+<link rel="canonical" href="https://secondcallaii.com/roi-calculator.html">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0e1d; --panel:#131a2e; --accent:#f5a623; --accent2:#ffcf6b; --text:#eef2f6; --muted:#a7b3c9; --line:#263354; --wine:#3d1030; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:linear-gradient(165deg,#0a0e1d 0%, #0d1130 34%, #22092b 68%, #170a24 100%) fixed, #0a0e1d; color:var(--text); line-height:1.6; min-height:100vh; }
+  h1, h2, h3, .logo { font-family:"Sora","Inter",sans-serif; }
+  ::selection { background:var(--accent); color:#111; }
+  .article-wrap { max-width:780px; margin:0 auto; padding:48px 22px 40px; }
+  .logo { display:flex; align-items:center; justify-content:center; gap:11px; font-weight:800; font-size:22px; letter-spacing:.5px; }
+  .logo img { width:54px; height:54px; border-radius:12px; box-shadow:0 6px 18px rgba(245,166,35,.35); }
+  .wordmark { font-family:"Rubik Spray Paint","Sora",sans-serif; font-size:38px; line-height:1; letter-spacing:1px; background:linear-gradient(92deg,#ffe9a8 5%, var(--accent) 45%, #ff8a3c 95%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(2px 3px 0 rgba(6,4,18,.9)) drop-shadow(0 6px 16px rgba(245,166,35,.30)); transform:rotate(-2deg); }
+  .wordmark .wm-ai { background:linear-gradient(92deg,#fff 10%, #ffd9ec 55%, #ff9ecb 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .brand { text-align:center; }
+  .tagline { display:inline-block; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent2); border:1px solid rgba(245,166,35,.5); background:rgba(245,166,35,.12); padding:7px 16px; border-radius:999px; margin:22px 0 34px; }
+  article { background:rgba(19,26,46,.88); border:1px solid var(--line); border-radius:16px; padding:42px; box-shadow:0 20px 44px rgba(0,0,0,.35); }
+  .kicker { display:block; font-size:12.5px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+  h1 { font-size:42px; line-height:1.13; font-weight:800; margin-bottom:20px; }
+  h2 { font-size:28px; line-height:1.25; font-weight:800; margin:38px 0 12px; }
+  h3 { font-size:20px; line-height:1.3; margin-bottom:8px; color:var(--accent2); }
+  p { color:var(--muted); font-size:17px; margin-bottom:16px; }
+  p strong, li strong { color:var(--text); }
+  .lede { color:#d5dee8; font-size:20px; }
+  a { color:var(--accent2); }
+  .calc { background:#1a1430; border:1px solid #3a2a55; border-radius:14px; padding:28px; margin:24px 0 6px; }
+  .field { margin-bottom:26px; }
+  .field:last-of-type { margin-bottom:6px; }
+  .field-head { display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:8px; }
+  .field label { font-weight:600; font-size:17px; color:var(--text); }
+  .field .note { color:var(--muted); font-size:14.5px; margin-top:4px; }
+  .field-controls { display:flex; align-items:center; gap:14px; }
+  .field input[type="range"] { flex:1; -webkit-appearance:none; appearance:none; height:8px; border-radius:999px; background:#263354; outline:none; cursor:pointer; }
+  .field input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:26px; height:26px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); border:2px solid #111; box-shadow:0 6px 16px rgba(245,166,35,.45); cursor:pointer; }
+  .field input[type="range"]::-moz-range-thumb { width:24px; height:24px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); border:2px solid #111; box-shadow:0 6px 16px rgba(245,166,35,.45); cursor:pointer; }
+  .field input[type="number"] { width:104px; padding:10px 12px; border-radius:8px; border:1px solid #334155; background:#0b1220; color:var(--text); font-size:17px; font-weight:600; text-align:right; }
+  .field .unit { color:var(--muted); font-size:15px; min-width:14px; }
+  .results { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px; }
+  .result { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 16px; text-align:center; }
+  .result .num { font-family:"Sora","Inter",sans-serif; font-size:34px; font-weight:800; color:var(--accent); line-height:1.15; }
+  .result .lbl { color:var(--muted); font-size:14.5px; margin-top:6px; }
+  .formula { background:rgba(245,166,35,.07); border:1px solid rgba(245,166,35,.35); border-radius:12px; padding:20px 22px; margin-top:22px; }
+  .formula p { margin-bottom:0; font-size:16px; color:#d5dee8; }
+  .honest { font-size:15px; margin-top:16px; }
+  .offer { border:2px solid var(--accent); border-radius:16px; padding:32px; margin-top:38px; background:linear-gradient(180deg, rgba(245,166,35,.10), rgba(245,166,35,.03)); text-align:center; }
+  .offer h2 { margin-top:0; }
+  .offer p { max-width:620px; margin-left:auto; margin-right:auto; }
+  .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+  .btn { display:inline-block; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-weight:700; padding:14px 26px; border-radius:10px; text-decoration:none; font-size:17px; box-shadow:0 8px 24px rgba(245,166,35,.35); }
+  .btn:hover { filter:brightness(1.07); }
+  .btn.ghost { background:rgba(11,15,20,.45); color:var(--text); border:1px solid rgba(255,255,255,.35); box-shadow:none; }
+  .links-note { font-size:15px; margin:20px 0 0; }
+  footer { margin-top:42px; text-align:center; color:var(--muted); font-size:14px; }
+  footer a { color:var(--accent2); text-decoration:none; font-weight:600; }
+  @media(max-width:640px){ article { padding:30px 22px; } h1 { font-size:33px; } .calc { padding:22px 18px; } .results { grid-template-columns:1fr; } .offer { padding:26px 20px; } .field input[type="number"] { width:92px; } }
+</style>
+</head>
+<body>
+<main class="article-wrap">
+  <div class="brand">
+    <div class="logo"><img src="logo.png" alt="SecondCall AI logo"><span class="wordmark">Second Call <span class="wm-ai">AI</span></span></div>
+    <div><span class="tagline">The front desk for local business</span></div>
+  </div>
+
+  <article>
+    <span class="kicker">Run your own numbers</span>
+    <h1>The Missed-Call Calculator — What Is Your Phone Costing You?</h1>
+    <p class="lede">No hype, no made-up industry stats — just your numbers. Move the four sliders to match your shop and see an honest estimate of what missed calls may be costing you.</p>
+
+    <div class="calc" aria-label="Missed-call cost calculator">
+      <div class="field">
+        <div class="field-head"><label for="callsNum">Calls your shop gets per week</label></div>
+        <div class="field-controls">
+          <input type="range" id="callsRange" min="1" max="300" step="1" value="40" aria-label="Calls per week (slider)">
+          <input type="number" id="callsNum" min="1" max="2000" step="1" value="40">
+          <span class="unit">/wk</span>
+        </div>
+        <p class="note">Count every ring — service calls, estimates, after-hours. Your phone bill or call log has the real count.</p>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><label for="missedNum">Share of calls that go unanswered</label></div>
+        <div class="field-controls">
+          <input type="range" id="missedRange" min="0" max="100" step="1" value="25" aria-label="Percent of calls missed (slider)">
+          <input type="number" id="missedNum" min="0" max="100" step="1" value="25">
+          <span class="unit">%</span>
+        </div>
+        <p class="note">Industry reporting puts missed calls for local shops at <strong>20–30%</strong> — on a job, at lunch, after hours, it adds up. Start at 25% if you are not sure.</p>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><label for="valueNum">Average value of one job</label></div>
+        <div class="field-controls">
+          <input type="range" id="valueRange" min="25" max="5000" step="25" value="450" aria-label="Average job value (slider)">
+          <input type="number" id="valueNum" min="0" max="100000" step="25" value="450">
+          <span class="unit">$</span>
+        </div>
+        <p class="note">Your typical ticket — a repair, a service call, an install deposit. Use the average, not your biggest job.</p>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><label for="jobsNum">Share of missed calls that were real jobs</label></div>
+        <div class="field-controls">
+          <input type="range" id="jobsRange" min="0" max="100" step="1" value="30" aria-label="Percent of missed calls that were real jobs (slider)">
+          <input type="number" id="jobsNum" min="0" max="100" step="1" value="30">
+          <span class="unit">%</span>
+        </div>
+        <p class="note">Not every missed call was a customer — some are suppliers, wrong numbers, robocalls. This keeps the estimate honest.</p>
+      </div>
+
+      <div class="results" aria-live="polite">
+        <div class="result"><div class="num" id="outJobs">13</div><div class="lbl">estimated jobs lost<br>per month</div></div>
+        <div class="result"><div class="num" id="outMonth">$5,850</div><div class="lbl">estimated revenue lost<br>per month</div></div>
+        <div class="result"><div class="num" id="outYear">$70,200</div><div class="lbl">estimated revenue lost<br>per year</div></div>
+      </div>
+
+      <div class="formula">
+        <p id="formulaText">Here is the math: 40 calls a week &times; 25% missed = 10 missed calls a week. If 30% of those were real jobs, that is about 3 jobs lost a week — roughly 13 a month. At an average of $450 a job, that is an estimated $5,850 a month, or about $70,200 a year.</p>
+      </div>
+
+      <p class="honest"><strong>These are estimates</strong>, built only from the four numbers you entered above — your real numbers may be higher or lower. The free <a href="missed-call-audit.html">Missed-Call Audit</a> checks them against your actual phone line, tonight, in about ten minutes.</p>
+    </div>
+
+    <section class="offer" aria-labelledby="offer-heading">
+      <h2 id="offer-heading">Now hear the fix — live</h2>
+      <p>Debbie, SecondCall AI&rsquo;s AI receptionist, answers every call in seconds, books the job, and sends you proof after every call. Do not take our word for it — hear her work.</p>
+      <div class="cta-row">
+        <a class="btn" href="tel:+17184007035">📞 Hear Debbie answer live: (718) 400-7035</a>
+        <a class="btn ghost" href="https://secondcallaii.com/#contact">Request a free test demo</a>
+      </div>
+      <p class="links-note">Prefer to check first? Run the free <a href="missed-call-audit.html">Missed-Call Audit</a> — three checks on your own line. One link routes to everything: <a href="https://secondcallaii.com/links">secondcallaii.com/links</a></p>
+    </section>
+  </article>
+
+  <footer>SecondCall AI · <a href="mailto:second@secondcallaii.com">second@secondcallaii.com</a></footer>
+</main>
+<script>
+(function(){
+  var WEEKS_PER_MONTH = 52/12;
+  function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+  function num(n){ return Math.round(n).toLocaleString("en-US"); }
+  function bind(rangeId, numId){
+    var r = document.getElementById(rangeId), n = document.getElementById(numId);
+    r.addEventListener("input", function(){ n.value = r.value; update(); });
+    n.addEventListener("input", function(){
+      var v = parseFloat(n.value);
+      if(!isNaN(v)){ r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), v)); }
+      update();
+    });
+    return n;
+  }
+  var callsEl = bind("callsRange","callsNum"),
+      missedEl = bind("missedRange","missedNum"),
+      valueEl = bind("valueRange","valueNum"),
+      jobsEl = bind("jobsRange","jobsNum");
+  function val(el, fallback){ var v = parseFloat(el.value); return isNaN(v) || v < 0 ? fallback : v; }
+  function update(){
+    var calls = val(callsEl, 0),
+        missedPct = val(missedEl, 0),
+        jobValue = val(valueEl, 0),
+        jobsPct = val(jobsEl, 0);
+    var missedPerWeek = calls * missedPct / 100;
+    var jobsPerWeek = missedPerWeek * jobsPct / 100;
+    var jobsPerMonth = jobsPerWeek * WEEKS_PER_MONTH;
+    var revPerMonth = jobsPerMonth * jobValue;
+    var revPerYear = revPerMonth * 12;
+    document.getElementById("outJobs").textContent = num(jobsPerMonth);
+    document.getElementById("outMonth").textContent = money(revPerMonth);
+    document.getElementById("outYear").textContent = money(revPerYear);
+    document.getElementById("formulaText").textContent =
+      "Here is the math: " + num(calls) + " calls a week \u00D7 " + num(missedPct) + "% missed = " +
+      num(missedPerWeek) + " missed calls a week. If " + num(jobsPct) + "% of those were real jobs, that is about " +
+      num(jobsPerWeek) + " jobs lost a week \u2014 roughly " + num(jobsPerMonth) + " a month. At an average of " +
+      money(jobValue) + " a job, that is an estimated " + money(revPerMonth) + " a month, or about " +
+      money(revPerYear) + " a year.";
+  }
+  update();
+})();
+</script>
+</body>
+</html>
