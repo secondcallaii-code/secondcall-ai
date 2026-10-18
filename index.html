@@ -321,9 +321,13 @@
         <option>Office staff stretched too thin</option>
         <option>Just curious how it works</option>
       </select>
-      <label for="sc-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#9aa7b5;line-height:1.5;">
-        <input id="sc-consent" name="Call and SMS consent" type="checkbox" value="Yes" required style="margin-top:3px;">
-        <span>Yes, SecondCall AI may call and text me at the number I provided about my demo request and its services. Call and message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. Consent is not a condition of purchase.</span>
+      <label for="sc-call-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#9aa7b5;line-height:1.5;">
+        <input id="sc-call-consent" name="Call consent" type="checkbox" value="Yes" required style="margin-top:3px;">
+        <span>Yes — call me at the number I provided about my demo request. (This box is required because the demo itself is delivered by phone call.)</span>
+      </label>
+      <label for="sc-sms-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#9aa7b5;line-height:1.5;margin-top:10px;">
+        <input id="sc-sms-consent" name="SMS consent" type="checkbox" value="Yes" style="margin-top:3px;">
+        <span>Optional — you may also text me at that number about my demo request and SecondCall AI's services. Message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. You can receive your demo call without agreeing to texts — consent is not a condition of purchase.</span>
       </label>
       <p style="font-size:13px;color:#9aa7b5;margin:10px 0 18px;">See our <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> and <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a>.</p>
       <button type="submit" class="btn" style="width:100%;text-align:center;cursor:pointer;">Have Debbie call me</button>
