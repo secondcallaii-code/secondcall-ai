@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Missed-Call Audit: How Many Jobs Is Your Phone Costing You?</title>
-<meta name="description" content="Run three simple checks tonight to see how many jobs your business phone may be costing you — then hear how SecondCall AI's Debbie would answer.">
-<meta property="og:title" content="The Missed-Call Audit: How Many Jobs Is Your Phone Costing You?">
-<meta property="og:description" content="Three checks to run tonight: what happens after hours, what your call log is hiding, and how many weekend rings go unanswered.">
-<meta property="og:type" content="article">
+<title>The Missed-Call Scan — See What Your Phone Is Leaking, Instantly</title>
+<meta name="description" content="Type in your business, move three sliders, and get an instant estimate of the jobs and revenue your missed calls are leaking every month — computed from your own numbers.">
+<meta property="og:title" content="The Missed-Call Scan — See What Your Phone Is Leaking, Instantly">
+<meta property="og:description" content="An instant, honest estimate of what missed calls cost your shop each month — from your own numbers, not made-up stats.">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://secondcallaii.com/missed-call-audit.html">
 <meta property="og:image" content="https://secondcallaii.com/hero.jpg">
 <meta name="theme-color" content="#0b0f14">
@@ -38,6 +38,30 @@
   p { color:var(--muted); font-size:17px; margin-bottom:16px; }
   p strong, li strong { color:var(--text); }
   .lede { color:#d5dee8; font-size:20px; }
+  a { color:var(--accent2); }
+  .scan { background:#1a1430; border:1px solid #3a2a55; border-radius:14px; padding:28px; margin:24px 0 6px; }
+  .field { margin-bottom:26px; }
+  .field label { font-weight:600; font-size:17px; color:var(--text); display:block; margin-bottom:8px; }
+  .field .note { color:var(--muted); font-size:14.5px; margin-top:6px; margin-bottom:0; }
+  .field input[type="text"], .field select { width:100%; padding:12px 14px; border-radius:8px; border:1px solid #334155; background:#0b1220; color:var(--text); font-size:17px; font-family:inherit; }
+  .field select { cursor:pointer; }
+  .field-controls { display:flex; align-items:center; gap:14px; }
+  .field input[type="range"] { flex:1; -webkit-appearance:none; appearance:none; height:8px; border-radius:999px; background:#263354; outline:none; cursor:pointer; }
+  .field input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:26px; height:26px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); border:2px solid #111; box-shadow:0 6px 16px rgba(245,166,35,.45); cursor:pointer; }
+  .field input[type="range"]::-moz-range-thumb { width:24px; height:24px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); border:2px solid #111; box-shadow:0 6px 16px rgba(245,166,35,.45); cursor:pointer; }
+  .field input[type="number"] { width:104px; padding:10px 12px; border-radius:8px; border:1px solid #334155; background:#0b1220; color:var(--text); font-size:17px; font-weight:600; text-align:right; }
+  .field .unit { color:var(--muted); font-size:15px; min-width:14px; }
+  .scan-result { border:2px solid var(--accent); border-radius:14px; padding:26px; margin-top:8px; background:linear-gradient(180deg, rgba(245,166,35,.12), rgba(245,166,35,.04)); text-align:center; }
+  .scan-result .headline { font-family:"Sora","Inter",sans-serif; font-size:27px; line-height:1.3; font-weight:800; color:var(--text); margin-bottom:6px; }
+  .scan-result .headline .leak { color:var(--accent); }
+  .scan-result .basis { font-size:14.5px; color:var(--muted); margin-bottom:0; }
+  .results { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px; }
+  .result { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 14px; text-align:center; }
+  .result .num { font-family:"Sora","Inter",sans-serif; font-size:32px; font-weight:800; color:var(--accent); line-height:1.15; }
+  .result .lbl { color:var(--muted); font-size:14px; margin-top:6px; }
+  .formula { background:rgba(245,166,35,.07); border:1px solid rgba(245,166,35,.35); border-radius:12px; padding:20px 22px; margin-top:22px; }
+  .formula p { margin-bottom:0; font-size:16px; color:#d5dee8; }
+  .honest { font-size:15px; margin-top:16px; margin-bottom:0; }
   .checks { display:grid; gap:16px; margin:24px 0 6px; }
   .check { background:#1a1430; border:1px solid #3a2a55; border-radius:14px; padding:24px; display:grid; grid-template-columns:52px 1fr; gap:18px; }
   .check .n { width:52px; height:52px; border-radius:50%; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-family:"Sora","Inter",sans-serif; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(245,166,35,.3); }
@@ -50,10 +74,9 @@
   .btn:hover { filter:brightness(1.07); }
   .btn.ghost { background:rgba(11,15,20,.45); color:var(--text); border:1px solid rgba(255,255,255,.35); box-shadow:none; }
   .links-note { font-size:15px; margin:20px 0 0; }
-  a { color:var(--accent2); }
   footer { margin-top:42px; text-align:center; color:var(--muted); font-size:14px; }
   footer a { color:var(--accent2); text-decoration:none; font-weight:600; }
-  @media(max-width:640px){ article { padding:30px 22px; } h1 { font-size:33px; } .check { grid-template-columns:1fr; } .check .n { margin-bottom:2px; } .offer { padding:26px 20px; } }
+  @media(max-width:640px){ article { padding:30px 22px; } h1 { font-size:33px; } .scan { padding:22px 18px; } .scan-result .headline { font-size:23px; } .results { grid-template-columns:1fr; } .check { grid-template-columns:1fr; } .check .n { margin-bottom:2px; } .offer { padding:26px 20px; } .field input[type="number"] { width:92px; } }
 </style>
 </head>
 <body>
@@ -64,16 +87,88 @@
   </div>
 
   <article>
-    <span class="kicker">Run it tonight</span>
-    <h1>The Missed-Call Audit: How Many Jobs Is Your Phone Costing You?</h1>
-    <p class="lede">Your phone can ring all day and still be leaking work. The leak is quiet: a customer calls while the crew is busy, gets no answer, and moves on before you ever know they tried.</p>
+    <span class="kicker">The 60-second scan</span>
+    <h1>The Missed-Call Scan: What Is Your Phone Leaking?</h1>
+    <p class="lede">Your phone can ring all day and still be leaking work. Type in your business, move the sliders to match your shop, and see the leak — instantly, from your own numbers.</p>
 
-    <h2>The problem, without the hype</h2>
-    <p>Industry reporting puts the share of calls to local shops that go unanswered at <strong>20–30%</strong>. That does not mean every missed call was a ready-to-book job. Some are suppliers, robocalls, or people dialing the wrong number.</p>
-    <p>But some are exactly the calls you advertise for — a homeowner with no heat, a driver stuck behind a broken garage door, a customer holding an estimate from somebody else. When those callers get silence, they typically dial the next business on Google. You never hear the phone ring out, so the lost job never shows up in your day.</p>
-    <p>You do not need a consultant or a new phone system to find out whether this is happening at your shop. You need one honest look at your own line.</p>
+    <div class="scan" aria-label="Missed-call scan">
+      <div class="field">
+        <label for="bizName">Your business name</label>
+        <input type="text" id="bizName" placeholder="e.g. Summit Air Conditioning" autocomplete="off" maxlength="60">
+      </div>
 
-    <h2>The self-audit: three checks</h2>
+      <div class="field">
+        <label for="trade">Your trade</label>
+        <select id="trade">
+          <option value="hvac" selected>HVAC</option>
+          <option value="roofing">Roofing</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="garage">Garage Door</option>
+          <option value="electricians">Electricians</option>
+          <option value="other">Other local service</option>
+        </select>
+        <p class="note">Picking a trade sets a typical job value below — change it to your real average.</p>
+      </div>
+
+      <div class="field">
+        <label for="callsNum">Calls your shop gets per week</label>
+        <div class="field-controls">
+          <input type="range" id="callsRange" min="1" max="300" step="1" value="40" aria-label="Calls per week (slider)">
+          <input type="number" id="callsNum" min="1" max="2000" step="1" value="40">
+          <span class="unit">/wk</span>
+        </div>
+        <p class="note">Count every ring — service calls, estimates, after-hours. Your phone bill or call log has the real count.</p>
+      </div>
+
+      <div class="field">
+        <label for="missedNum">Share of calls missed or after-hours</label>
+        <div class="field-controls">
+          <input type="range" id="missedRange" min="0" max="100" step="1" value="25" aria-label="Percent of calls missed (slider)">
+          <input type="number" id="missedNum" min="0" max="100" step="1" value="25">
+          <span class="unit">%</span>
+        </div>
+        <p class="note">Industry reporting puts the share of calls to local shops that go unanswered at <strong>20–30%</strong> — on a job, at lunch, after hours, it adds up. Start at 25% if you are not sure.</p>
+      </div>
+
+      <div class="field">
+        <label for="valueNum">Average value of one job</label>
+        <div class="field-controls">
+          <input type="range" id="valueRange" min="25" max="5000" step="25" value="450" aria-label="Average job value (slider)">
+          <input type="number" id="valueNum" min="0" max="100000" step="25" value="450">
+          <span class="unit">$</span>
+        </div>
+        <p class="note">Your typical ticket — a repair, a service call, an install deposit. Use the average, not your biggest job.</p>
+      </div>
+
+      <div class="scan-result" aria-live="polite">
+        <p class="headline"><span id="headlineName">Your business</span> is likely leaking about <span class="leak" id="headlineLeak">$5,850</span>/month in missed calls.</p>
+        <p class="basis">Estimate based on the numbers you entered.</p>
+        <div class="results">
+          <div class="result"><div class="num" id="outMissed">43</div><div class="lbl">estimated missed calls<br>per month</div></div>
+          <div class="result"><div class="num" id="outMonth">$5,850</div><div class="lbl">estimated revenue leaked<br>per month</div></div>
+          <div class="result"><div class="num" id="outYear">$70,200</div><div class="lbl">estimated revenue leaked<br>per year</div></div>
+        </div>
+      </div>
+
+      <div class="formula">
+        <p id="formulaText">Here is the math: 40 calls a week &times; 25% missed = 10 missed calls a week — about 43 a month. Not every missed call was a job, so like our full calculator we count about 30% of them as real jobs: roughly 13 jobs a month. At an average of $450 a job, that is an estimated $5,850 leaked per month.</p>
+      </div>
+
+      <p class="honest"><strong>These are estimates</strong>, built only from the numbers you entered above — your real numbers may be higher or lower. Want every assumption adjustable? Run the full <a href="roi-calculator.html">Missed-Call Calculator</a>. Or check the estimate against your actual phone line with the three checks below.</p>
+    </div>
+
+    <section class="offer" aria-labelledby="offer-heading">
+      <h2 id="offer-heading">Hear the fix before you decide anything</h2>
+      <p>Debbie, SecondCall AI&rsquo;s AI receptionist, answers every call in seconds, books the job, and sends you proof after every call. Do not take our word for it — hear her work, then request a <strong>free test demo</strong> and she will call you back within minutes between 8am and 9pm ET.</p>
+      <div class="cta-row">
+        <a class="btn" href="tel:+17184007035">📞 Hear Debbie answer live: (718) 400-7035</a>
+        <a class="btn ghost" href="https://secondcallaii.com/#contact">Request a free test demo</a>
+      </div>
+      <p class="links-note">One link routes to everything: <a href="https://secondcallaii.com/links">secondcallaii.com/links</a></p>
+    </section>
+
+    <h2>Prefer to check your real line? The free self-audit</h2>
+    <p>The scan works from the numbers you entered. These three checks take about ten minutes tonight and test the estimate against your actual phone line.</p>
     <div class="checks">
       <section class="check">
         <div class="n">1</div>
@@ -102,20 +197,68 @@
 
     <h2>What the tally is really telling you</h2>
     <p>If those checks turn up only wrong numbers and sales calls, your line is doing its job. If even one was a real customer trying to book work, the audit found the gap. The fix is not answering faster when you are already busy. The fix is making sure a caller always reaches someone who can help — including when you and your crew cannot pick up.</p>
-
-    <section class="offer" aria-labelledby="offer-heading">
-      <h2 id="offer-heading">Hear the fix before you decide anything</h2>
-      <p>Request a <strong>free test demo</strong> and Debbie — SecondCall AI&rsquo;s AI receptionist — will call you back within minutes between 8am and 9pm ET. She will show you exactly how she would answer for your business, on your own phone.</p>
-      <p>Want to hear her first? Call <a href="tel:+17184007035">(718) 400-7035</a> right now and hear her answer live.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://secondcallaii.com/#contact">Request a free test demo</a>
-        <a class="btn ghost" href="tel:+17184007035">Hear Debbie live</a>
-      </div>
-      <p class="links-note">One link routes to everything: <a href="https://secondcallaii.com/links">secondcallaii.com/links</a></p>
-    </section>
+    <p>Industry reporting puts the share of calls to local shops that go unanswered at <strong>20–30%</strong>. That does not mean every missed call was a ready-to-book job — some are suppliers, robocalls, or people dialing the wrong number. But some are exactly the calls you advertise for, and when those callers get silence, they typically dial the next business on Google.</p>
   </article>
 
   <footer>SecondCall AI · <a href="mailto:second@secondcallaii.com">second@secondcallaii.com</a></footer>
 </main>
+<script>
+(function(){
+  var WEEKS_PER_MONTH = 52/12;
+  var REAL_JOB_SHARE = 0.30; /* Same conservative assumption as roi-calculator.html: ~30% of missed calls were real jobs. */
+  var TRADE_PRESETS = { hvac:450, roofing:850, plumbing:400, garage:475, electricians:500, other:500 };
+  var valueTouched = false;
+  function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+  function num(n){ return Math.round(n).toLocaleString("en-US"); }
+  function bind(rangeId, numId, onManual){
+    var r = document.getElementById(rangeId), n = document.getElementById(numId);
+    r.addEventListener("input", function(){ n.value = r.value; if(onManual) onManual(); update(); });
+    n.addEventListener("input", function(){
+      var v = parseFloat(n.value);
+      if(!isNaN(v)){ r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), v)); }
+      if(onManual) onManual();
+      update();
+    });
+    return n;
+  }
+  var callsEl = bind("callsRange","callsNum"),
+      missedEl = bind("missedRange","missedNum"),
+      valueEl = bind("valueRange","valueNum", function(){ valueTouched = true; });
+  var nameEl = document.getElementById("bizName"),
+      tradeEl = document.getElementById("trade");
+  nameEl.addEventListener("input", update);
+  tradeEl.addEventListener("change", function(){
+    if(!valueTouched && TRADE_PRESETS[tradeEl.value] != null){
+      var preset = TRADE_PRESETS[tradeEl.value];
+      document.getElementById("valueRange").value = preset;
+      valueEl.value = preset;
+    }
+    update();
+  });
+  function val(el, fallback){ var v = parseFloat(el.value); return isNaN(v) || v < 0 ? fallback : v; }
+  function update(){
+    var name = nameEl.value.trim();
+    var calls = val(callsEl, 0),
+        missedPct = val(missedEl, 0),
+        jobValue = val(valueEl, 0);
+    var missedPerWeek = calls * missedPct / 100;
+    var missedPerMonth = missedPerWeek * WEEKS_PER_MONTH;
+    var jobsPerMonth = missedPerMonth * REAL_JOB_SHARE;
+    var revPerMonth = jobsPerMonth * jobValue;
+    var revPerYear = revPerMonth * 12;
+    document.getElementById("headlineName").textContent = name ? name : "Your business";
+    document.getElementById("headlineLeak").textContent = money(revPerMonth);
+    document.getElementById("outMissed").textContent = num(missedPerMonth);
+    document.getElementById("outMonth").textContent = money(revPerMonth);
+    document.getElementById("outYear").textContent = money(revPerYear);
+    document.getElementById("formulaText").textContent =
+      "Here is the math: " + num(calls) + " calls a week \u00D7 " + num(missedPct) + "% missed = " +
+      num(missedPerWeek) + " missed calls a week \u2014 about " + num(missedPerMonth) + " a month. Not every missed call was a job, " +
+      "so like our full calculator we count about 30% of them as real jobs: roughly " + num(jobsPerMonth) + " jobs a month. " +
+      "At an average of " + money(jobValue) + " a job, that is an estimated " + money(revPerMonth) + " leaked per month.";
+  }
+  update();
+})();
+</script>
 </body>
 </html>
