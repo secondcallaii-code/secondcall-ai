@@ -134,6 +134,40 @@
   .debbie-call .dc-num { display:block; font-size:30px; font-weight:800; letter-spacing:.5px; line-height:1.25; }
   .contact .mail { font-size:20px; color:var(--accent2); font-weight:700; text-align:center; margin-top:38px; }
   footer { border-top:1px solid var(--line); padding:26px 0; text-align:center; color:var(--muted); font-size:14px; }
+  /* —— SecondCall website assistant (popup) —— */
+  #sca-launcher { position:fixed; right:22px; bottom:22px; z-index:120; display:inline-flex; align-items:center; gap:9px; background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-family:"Inter",sans-serif; font-weight:800; font-size:15.5px; padding:14px 20px; border:none; border-radius:999px; cursor:pointer; box-shadow:0 14px 34px rgba(245,166,35,.40); }
+  #sca-launcher:hover { filter:brightness(1.07); }
+  #sca-launcher.hidden { display:none; }
+  #sca-launcher .sca-dot { width:9px; height:9px; border-radius:50%; background:#1d7a45; box-shadow:0 0 0 3px rgba(29,122,69,.25); flex:none; }
+  #sca-panel { position:fixed; right:22px; bottom:22px; z-index:130; width:384px; max-width:calc(100vw - 24px); height:min(600px, calc(100vh - 120px)); display:none; flex-direction:column; background:var(--panel); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.55); font-family:"Inter",sans-serif; }
+  #sca-panel.open { display:flex; }
+  .sca-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:16px 18px; background:linear-gradient(180deg, rgba(245,166,35,.16), rgba(245,166,35,.04)); border-bottom:1px solid var(--line); }
+  .sca-head strong { font-family:"Sora",sans-serif; font-size:16.5px; display:block; }
+  .sca-head span { color:var(--muted); font-size:13px; display:block; margin-top:2px; line-height:1.45; }
+  #sca-close { background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.16); width:32px; height:32px; border-radius:9px; font-size:15px; cursor:pointer; flex:none; }
+  #sca-msgs { flex:1; overflow-y:auto; padding:16px 14px 6px; display:flex; flex-direction:column; gap:10px; }
+  .sca-msg { max-width:88%; padding:11px 14px; border-radius:14px; font-size:14.5px; line-height:1.55; white-space:pre-wrap; overflow-wrap:break-word; }
+  .sca-msg.bot { background:#1d2742; border:1px solid var(--line); border-bottom-left-radius:5px; align-self:flex-start; color:var(--text); }
+  .sca-msg.user { background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#141414; font-weight:600; border-bottom-right-radius:5px; align-self:flex-end; }
+  .sca-msg a { color:var(--accent2); font-weight:700; }
+  #sca-chips { display:flex; flex-wrap:wrap; gap:8px; padding:8px 14px 4px; }
+  .sca-chip { background:rgba(245,166,35,.10); color:var(--accent2); border:1px solid rgba(245,166,35,.55); border-radius:999px; padding:9px 14px; font-size:14px; font-weight:700; cursor:pointer; font-family:"Inter",sans-serif; }
+  .sca-chip:hover { background:rgba(245,166,35,.22); }
+  #sca-inputrow { display:flex; gap:8px; padding:10px 14px 14px; }
+  #sca-text { flex:1; padding:12px; border-radius:10px; border:1px solid #334155; background:#0b1220; color:#e5edf5; font-size:14.5px; font-family:"Inter",sans-serif; min-width:0; }
+  #sca-send { background:linear-gradient(180deg,var(--accent2),var(--accent)); color:#111; font-weight:800; border:none; border-radius:10px; padding:0 16px; cursor:pointer; font-size:14.5px; }
+  #sca-formwrap { overflow-y:auto; padding:2px 16px 16px; display:none; }
+  #sca-formwrap.show { display:block; }
+  #sca-form label { display:block; font-weight:600; margin:12px 0 6px; font-size:14.5px; }
+  #sca-form input[type=text], #sca-form input[type=tel], #sca-form input[type=email], #sca-form select { width:100%; padding:12px; border-radius:8px; border:1px solid #334155; background:#0b1220; color:#e5edf5; font-size:14.5px; font-family:"Inter",sans-serif; }
+  #sca-form label.consent { display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:#9aa7b5; line-height:1.5; font-weight:400; }
+  #sca-form label.consent input { margin-top:3px; flex:none; }
+  #sca-form .fineprint { font-size:12.5px; color:#9aa7b5; margin-top:10px; line-height:1.5; }
+  #sca-form .fineprint a { color:#9aa7b5; }
+  .sca-mode-link { background:none; border:none; color:var(--accent2); font-size:13.5px; font-weight:700; cursor:pointer; padding:0; text-decoration:underline; font-family:"Inter",sans-serif; }
+  .sca-foot { padding:11px 16px; border-top:1px solid var(--line); font-size:13.5px; color:var(--muted); text-align:center; }
+  .sca-foot a { color:var(--accent2); font-weight:800; text-decoration:none; white-space:nowrap; }
+  @media(max-width:760px){ #sca-launcher { bottom:84px; right:14px; } #sca-panel { right:12px; left:12px; width:auto; bottom:78px; height:min(600px, calc(100vh - 170px)); } }
   @media(max-width:760px){ .hero h1{font-size:36px;} .stats,.cards,.steps,.pricing,.contact-grid,.gallery,.proof,.fornot{grid-template-columns:1fr;} .band h2{font-size:28px;} }
 </style>
 </head>
@@ -343,6 +377,263 @@
 <footer>SecondCall AI · AI front-desk systems for local businesses · Jobs booked while you work. Proof in your pocket. · © 2026 · <a href="privacy.html" style="color:#9aa7b5;">Privacy Policy</a> · <a href="terms.html" style="color:#9aa7b5;">SMS Terms &amp; Conditions</a></footer>
 <a class="callbar" href="tel:+17184007035">📞 Call Debbie — (718) 400-7035</a>
 <script>var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});</script>
+
+<!-- —— SecondCall website assistant (popup) —— -->
+<button id="sca-launcher" type="button" aria-label="Open the SecondCall AI chat assistant"><span class="sca-dot"></span>💬 Ask about Debbie</button>
+<div id="sca-panel" role="dialog" aria-label="SecondCall AI website assistant">
+  <div class="sca-head">
+    <div><strong>SecondCall AI Assistant</strong><span>I can answer questions about Debbie — and set up a free test call so you can hear her work.</span></div>
+    <button id="sca-close" type="button" aria-label="Close chat">✕</button>
+  </div>
+  <div id="sca-msgs" aria-live="polite"></div>
+  <div id="sca-chips"></div>
+  <div id="sca-formwrap">
+    <form id="sca-form" action="https://formsubmit.co/secondcallaii@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Demo callback request — secondcallaii.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://secondcallaii.com/?demo=requested#contact">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="Source" value="Website assistant popup">
+      <input type="hidden" name="Industry" id="sca-f-industry" value="">
+      <input type="hidden" name="Missed calls per week" id="sca-f-missed" value="">
+      <input type="hidden" name="When a call is missed" id="sca-f-happens" value="">
+      <input type="hidden" name="Biggest issue" id="sca-f-issue" value="">
+      <input type="hidden" name="Request type" id="sca-f-reqtype" value="General inquiry — details only">
+      <p id="sca-form-intro" style="font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:10px;"></p>
+      <label for="sca-name">Your name</label>
+      <input id="sca-name" name="Name" type="text" required autocomplete="name">
+      <label for="sca-business">Business name <span style="font-weight:400;color:#9aa7b5;">(optional)</span></label>
+      <input id="sca-business" name="Business" type="text" autocomplete="organization">
+      <label for="sca-mobile">Mobile number</label>
+      <input id="sca-mobile" name="Mobile" type="tel" required autocomplete="tel">
+      <label for="sca-email">Email <span style="font-weight:400;color:#9aa7b5;">(optional)</span></label>
+      <input id="sca-email" name="Email" type="email" autocomplete="email">
+      <div id="sca-besttime-wrap">
+        <label for="sca-besttime">Best time for Debbie to call</label>
+        <select id="sca-besttime" name="Best time to call">
+          <option>As soon as possible (8am–9pm ET)</option>
+          <option>This morning</option>
+          <option>This afternoon</option>
+          <option>This evening</option>
+        </select>
+      </div>
+      <label class="consent" for="sca-call-consent" style="margin-top:14px;">
+        <input id="sca-call-consent" name="Call consent" type="checkbox" value="Yes">
+        <span>Yes — call me for a free test run at the number I provided.</span>
+      </label>
+      <label class="consent" for="sca-sms-consent">
+        <input id="sca-sms-consent" name="SMS consent" type="checkbox" value="Yes">
+        <span>Optional — you may also text me at that number about my request and SecondCall AI's services. Message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for help. You can receive your test call without agreeing to texts — consent is not a condition of purchase.</span>
+      </label>
+      <p class="fineprint">See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms &amp; Conditions</a>.</p>
+      <button type="submit" class="btn" id="sca-submit" style="width:100%;text-align:center;margin-top:14px;">Request my free test call</button>
+      <p style="text-align:center;margin-top:12px;"><button type="button" class="sca-mode-link" id="sca-modelink">Prefer no phone call? Switch to details only</button></p>
+      <p class="fineprint" style="text-align:center;">No credit card. No obligation.</p>
+    </form>
+  </div>
+  <div id="sca-inputrow">
+    <input id="sca-text" type="text" placeholder="…or type your trade" aria-label="Type your answer">
+    <button id="sca-send" type="button">Send</button>
+  </div>
+  <div class="sca-foot">Rather hear her first? Call Debbie: <a href="tel:+17184007035">(718) 400-7035</a></div>
+</div>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var launcher=$('sca-launcher'), panel=$('sca-panel'), msgs=$('sca-msgs'), chips=$('sca-chips'),
+      formWrap=$('sca-formwrap'), form=$('sca-form'), inputRow=$('sca-inputrow'),
+      textIn=$('sca-text'), consent=$('sca-call-consent'), submitBtn=$('sca-submit'),
+      modeLink=$('sca-modelink'), intro=$('sca-form-intro'), bestWrap=$('sca-besttime-wrap'),
+      reqType=$('sca-f-reqtype');
+  var state={ step:'start', industry:'', missed:'', happens:'', mode:'test', started:false };
+
+  function scrollMsgs(){ msgs.scrollTop = msgs.scrollHeight; }
+  function addMsg(txt, who){
+    var d=document.createElement('div'); d.className='sca-msg '+who; d.textContent=txt;
+    msgs.appendChild(d); scrollMsgs();
+  }
+  function bot(txt, delay){ setTimeout(function(){ addMsg(txt,'bot'); }, delay||350); }
+  function setChips(list){
+    chips.innerHTML='';
+    list.forEach(function(c){
+      var b=document.createElement('button'); b.type='button'; b.className='sca-chip'; b.textContent=c.label;
+      b.addEventListener('click', function(){ pick(c); });
+      chips.appendChild(b);
+    });
+  }
+  function clearChips(){ chips.innerHTML=''; }
+
+  function openPanel(){
+    panel.classList.add('open'); launcher.classList.add('hidden');
+    if(!state.started){ state.started=true; startFlow(); }
+  }
+  function closePanel(){
+    panel.classList.remove('open'); launcher.classList.remove('hidden');
+  }
+  launcher.addEventListener('click', openPanel);
+  $('sca-close').addEventListener('click', closePanel);
+
+  function startFlow(){
+    bot("Hi there 👋 I'm the SecondCall AI assistant. I can tell you how Debbie — our AI receptionist — works, and set up a free test call so you can hear her handle a call the way she would for your customers.", 250);
+    setTimeout(function(){
+      addMsg("First, so I point you right: what kind of business are you in?", 'bot');
+      setChips([
+        {label:'HVAC', v:'HVAC'}, {label:'Roofing', v:'Roofing'}, {label:'Plumbing', v:'Plumbing'},
+        {label:'Garage Door', v:'Garage Door'}, {label:'Electrical', v:'Electrical'},
+        {label:'Other local business', v:'Other local business'}
+      ]);
+      state.step='industry';
+    }, 950);
+  }
+
+  function askMissed(){
+    textIn.placeholder='Type a reply…';
+    bot("Good — we work with a lot of " + state.industry + " businesses. Now the big one: roughly how many calls do you miss in a week — after hours, on a job, or when everyone's tied up?");
+    setChips([
+      {label:'1–5', v:'1-5'}, {label:'6–10', v:'6-10'}, {label:'10+', v:'10+'}, {label:'Not sure', v:'Not sure'}
+    ]);
+    state.step='missed';
+  }
+
+  function askHappens(){
+    bot("And when a call does get missed, what usually happens?");
+    setChips([
+      {label:'Goes to voicemail', v:'Goes to voicemail'},
+      {label:'No answer after hours', v:'No answer after hours'},
+      {label:'A bit of both', v:'A bit of both'}
+    ]);
+    state.step='happens';
+  }
+
+  function showOfferChips(){
+    setChips([
+      {label:'📞 Yes — have Debbie call me', v:'test'},
+      {label:"I'll call her myself", v:'selfcall'},
+      {label:'Just leave my details', v:'details'}
+    ]);
+    state.step='offer';
+  }
+
+  function reflectAndOffer(){
+    $('sca-f-issue').value = (state.happens === 'No answer after hours') ? 'After-hours calls going unanswered' : 'Missed calls going to voicemail';
+    var cost;
+    if(state.missed === '1-5') cost = "At 1–5 missed calls a week, that's roughly $1,200–$6,000 a week in work that may go to whoever answers first — the average missed call to a local business is worth about $1,200.";
+    else if(state.missed === '6-10') cost = "At 6–10 missed calls a week, that's roughly $7,200–$12,000 a week in work on the line — the average missed call to a local business is worth about $1,200.";
+    else if(state.missed === '10+') cost = "At 10+ missed calls a week, that's $12,000+ a week in work on the line — the average missed call to a local business is worth about $1,200.";
+    else cost = "You're not alone in that: 62% of calls to local businesses go unanswered, and the average missed call is worth about $1,200 in work.";
+    bot(cost);
+    setTimeout(function(){
+      addMsg("Debbie fixes exactly that: she answers every call in seconds, 24/7, books the job into your calendar, and sends you proof after every call. Want to hear her handle a call?", 'bot');
+      showOfferChips();
+    }, 900);
+  }
+
+  function doSelfCall(){
+    bot("Love it — call Debbie right now at (718) 400-7035. She answers live, 24/7, and books a job exactly like she would for your customers. Throw your toughest objections at her.");
+    setTimeout(function(){
+      addMsg("Want pilot details sent over too? Leave your info below — you'll only get a call if you tick the consent box.", 'bot');
+      showForm('general');
+    }, 850);
+  }
+
+  function setMode(mode){
+    state.mode = mode;
+    if(mode === 'test'){
+      consent.required = true;
+      submitBtn.textContent = 'Request my free test call';
+      intro.textContent = 'Where should Debbie call for your free test run?';
+      bestWrap.style.display = 'block';
+      modeLink.textContent = 'Prefer no phone call? Switch to details only';
+      reqType.value = 'Free test call requested';
+    } else {
+      consent.required = false;
+      submitBtn.textContent = 'Send my details';
+      intro.textContent = "Leave your details and we'll follow up by email. Tick the consent box only if you'd also like Debbie to call you.";
+      bestWrap.style.display = consent.checked ? 'block' : 'none';
+      modeLink.textContent = 'Actually, I do want the free test call';
+      reqType.value = consent.checked ? 'Free test call requested' : 'General inquiry — details only';
+    }
+  }
+
+  function showForm(mode){
+    setMode(mode);
+    clearChips();
+    inputRow.style.display = 'none';
+    formWrap.classList.add('show');
+    state.step = 'form';
+    if(mode === 'test'){
+      bot("Perfect — fill this in and Debbie will call you within a few minutes (8am–9pm ET) for a live test run: she answers, qualifies, and books, just like she would for your customers. If Debbie books real jobs in your 60-day pilot ($297/month, free setup), great — and if she doesn't, we keep working free until she does.");
+    }
+    scrollMsgs();
+  }
+
+  modeLink.addEventListener('click', function(){ setMode(state.mode === 'test' ? 'general' : 'test'); });
+  consent.addEventListener('change', function(){
+    if(state.mode === 'general'){
+      reqType.value = consent.checked ? 'Free test call requested' : 'General inquiry — details only';
+      bestWrap.style.display = consent.checked ? 'block' : 'none';
+    }
+  });
+
+  function pick(c){
+    addMsg(c.label, 'user');
+    clearChips();
+    if(state.step === 'industry'){ state.industry = c.v; $('sca-f-industry').value = c.v; askMissed(); }
+    else if(state.step === 'missed'){ state.missed = c.v; $('sca-f-missed').value = c.label; askHappens(); }
+    else if(state.step === 'happens'){ state.happens = c.v; $('sca-f-happens').value = c.v; reflectAndOffer(); }
+    else if(state.step === 'offer'){
+      if(c.v === 'test') showForm('test');
+      else if(c.v === 'selfcall') doSelfCall();
+      else if(c.v === 'details') showForm('general');
+    }
+  }
+
+  function sendText(){
+    var v = textIn.value.trim();
+    if(!v) return;
+    textIn.value = '';
+    addMsg(v, 'user');
+    if(state.step === 'industry'){
+      state.industry = v; $('sca-f-industry').value = v; clearChips(); askMissed();
+    } else if(state.step === 'missed'){
+      var n = parseInt(v, 10);
+      clearChips();
+      if(!isNaN(n)){
+        state.missed = n <= 5 ? '1-5' : (n <= 10 ? '6-10' : '10+');
+        $('sca-f-missed').value = (n <= 5 ? '1–5' : (n <= 10 ? '6–10' : '10+')) + ' (typed: ' + n + ')';
+      } else {
+        state.missed = 'Not sure'; $('sca-f-missed').value = 'Not sure';
+      }
+      askHappens();
+    } else if(state.step === 'happens'){
+      state.happens = v; $('sca-f-happens').value = v; clearChips(); reflectAndOffer();
+    } else if(state.step === 'offer'){
+      var low = v.toLowerCase();
+      if(low === 'yes' || low.indexOf('call me') > -1){ clearChips(); showForm('test'); }
+      else if(low.indexOf('myself') > -1){ clearChips(); doSelfCall(); }
+      else { bot("Tap one of the options above and I'll set it up right away."); }
+    } else if(state.step !== 'form'){
+      bot("Tap one of the options above and I'll take it from there.");
+    }
+  }
+  $('sca-send').addEventListener('click', sendText);
+  textIn.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); sendText(); } });
+
+  /* Auto-open once per visit (sessionStorage); closing keeps it closed for the visit. */
+  try {
+    if(new URLSearchParams(location.search).get('demo') === 'requested'){
+      sessionStorage.setItem('sca_auto', '1');
+    }
+    if(!sessionStorage.getItem('sca_auto')){
+      sessionStorage.setItem('sca_auto', '1');
+      setTimeout(openPanel, 1400);
+    }
+  } catch(e){
+    setTimeout(openPanel, 1400);
+  }
+})();
+</script>
 </body>
 </html>
 
